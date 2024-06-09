@@ -18,3 +18,20 @@ contactForm.addEventListener('submit', function (e) {
         alert('Please enter a valid email address.');
     }
 });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.querySelector('form').addEventListener('submit', function (e) {
+    const emailField = document.querySelector('input[type="email"]');
+    if (!emailField.value.includes('@')) {
+        e.preventDefault();
+        alert('Please enter a valid email address.');
+    }
+});
